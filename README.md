@@ -61,6 +61,11 @@ Rakaman default ialah 1080p 24fps. Antara muka bergaya moden kaca, untuk landska
 5. **Simpan gabungan sendiri:** tab PRESET › **+ Simpan** › beri nama. Tekan lama pada preset sendiri untuk padam.
 6. Tekan tab yang sedang aktif sekali lagi untuk sembunyikan panel.
 
+### 🔄 Kemas kini app
+- Setiap kali CinePro dibuka, app semak sendiri sama ada ada versi baru di GitHub.
+- Semak sendiri: tab **KAMERA** › **⟳ Semak Versi**.
+- Kalau ada versi baru, tekan **Muat Turun**, buka fail APK dan tekan **Kemas kini**. Preset dan tetapan awak tak hilang.
+
 ### Tips cinematic
 - Guna **24 fps** dan hidupkan **Shutter 1/48** supaya gerakan nampak lembut macam filem. Bila shutter ON, kecerahan dikawal melalui slider **Terang**.
 - Di bawah lampu kalimantang (50Hz) yang berkelip, matikan Shutter 1/48.

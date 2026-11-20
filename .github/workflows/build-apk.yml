@@ -24,7 +24,7 @@ jobs:
       - name: Bina APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease --stacktrace
+          ./gradlew assembleRelease -PbuildNumber=${{ github.run_number }} --stacktrace
 
       - name: Namakan APK
         run: |

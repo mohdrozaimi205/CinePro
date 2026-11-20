@@ -11,8 +11,10 @@ android {
         applicationId = "com.mohdrozaimi.cinepro"
         minSdk = 29
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        val buildNumber = (project.findProperty("buildNumber") as String?)?.toIntOrNull() ?: 0
+        versionCode = buildNumber + 1
+        versionName = "1.0.$buildNumber"
+        buildConfigField("int", "BUILD_NUMBER", buildNumber.toString())
     }
 
     signingConfigs {
@@ -37,6 +39,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        buildConfig = true
     }
     lint {
         abortOnError = false

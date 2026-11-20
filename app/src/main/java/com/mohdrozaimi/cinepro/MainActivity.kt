@@ -143,6 +143,8 @@ class MainActivity : ComponentActivity() {
         val am = getSystemService(AUDIO_SERVICE) as AudioManager
         am.registerAudioDeviceCallback(audioCallback, null)
 
+        if (savedInstanceState == null) UpdateChecker.check(this, manual = false)
+
         val needed = arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
         if (needed.all { ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED }) {
             startCamera()
@@ -304,6 +306,9 @@ class MainActivity : ComponentActivity() {
                         wbMode = mode; applyCameraOptions(); showTab(t)
                     })
                 }
+                chipRow.addView(chip("⟳ Semak Versi (v${BuildConfig.VERSION_NAME})", false) {
+                    UpdateChecker.check(this, manual = true)
+                })
                 val range = camera?.cameraInfo?.exposureState?.exposureCompensationRange ?: Range(-6, 6)
                 val lo = range.lower
                 val hi = range.upper
