@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:id="@+id/focusRing"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:alpha="0"
+        android:background="@drawable/focus_ring" />
+
+    <FrameLayout
+        android:id="@+id/hudHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="14dp">
+<LinearLayout
+        android:id="@+id/hud"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/glass_pill"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp">
+
+        <View
+            android:id="@+id/recDot"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:alpha="0.35"
+            android:background="@drawable/dot_red" />
+
+        <TextView
+            android:id="@+id/timerText"
+            style="@style/HudText"
+            android:layout_marginStart="8dp"
+            android:fontFamily="monospace"
+            android:text="00:00:00" />
+
+        <TextView
+            android:id="@+id/fmtText"
+            style="@style/HudText"
+            android:layout_marginStart="12dp"
+            android:alpha="0.8"
+            android:text="1080p · 24fps" />
+
+        <TextView
+            android:id="@+id/micText"
+            style="@style/HudText"
+            android:layout_marginStart="12dp"
+            android:alpha="0.8"
+            android:text="MIC TELEFON" />
+
+        <ProgressBar
+            android:id="@+id/audioMeter"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="54dp"
+            android:layout_height="6dp"
+            android:layout_marginStart="8dp"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/meter_progress" />
+    </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/glass_panel"
+        android:minWidth="420dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+<LinearLayout
+            android:id="@+id/tabRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/contentBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/chipRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp" />
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:id="@+id/sliderRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp">
+
+                <TextView
+                    android:id="@+id/sliderLabel"
+                    style="@style/HudText"
+                    android:layout_width="84dp"
+                    android:text="Kekuatan" />
+
+                <SeekBar
+                    android:id="@+id/slider"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progressBackgroundTint="#66FFFFFF"
+                    android:progressTint="#FFFFFFFF"
+                    android:thumbTint="#FFFFFFFF" />
+
+                <TextView
+                    android:id="@+id/sliderValue"
+                    style="@style/HudText"
+                    android:layout_width="44dp"
+                    android:gravity="end"
+                    android:text="80%" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="104dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/flipBtn"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/glass_round"
+            android:contentDescription="Tukar kamera"
+            android:src="@drawable/ic_flip" />
+
+        <ImageButton
+            android:id="@+id/recordBtn"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="26dp"
+            android:background="@drawable/rec_idle"
+            android:contentDescription="Rakam" />
+
+        <ImageView
+            android:id="@+id/thumbBtn"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/glass_round"
+            android:contentDescription="Klip terakhir"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+</FrameLayout>
